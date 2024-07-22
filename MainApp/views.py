@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from MainApp import views
+from django.http import HttpResponse
 
 def home(request):
     text = """
