@@ -17,8 +17,15 @@ Including another URLconf
 from MainApp import views
 from django.urls import path
 
-
 urlpatterns = [
     path('', views.home),  
     path('about', views.about),
+    path('item/<int:id>', views.product_n),
+    path('items', views.products),
+    path('1.html', views.page_1),
+    path('2.html', views.page_2),
+    path('5.html', views.page_5),
+    path('7.html', views.page_7),
+    path('8.html', views.page_8),
+
 ]
