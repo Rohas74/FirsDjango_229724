@@ -3,8 +3,11 @@ from django.http import HttpResponse
 
 def home(request):
     text = """
-    <h1>"Изучаем django<h1>
-    <strong>Автор</strong>: <i>Ivanov A.A.</i>
+    Имя: <b>Иван</b>
+    Отчество: <b>Петрович</b>
+    Фамилия: <b>Иванов</b>
+    телефон: <b>8-865-234-12-23</b>
+    e-mail: <b>vasia@mail.ru</b>
     """
     return HttpResponse(text)
 # Create your views here.
