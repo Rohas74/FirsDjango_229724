@@ -1,5 +1,16 @@
+from django.http import HttpResponse, HttpResponseNotFound
 from django.shortcuts import render
-from django.http import HttpResponse
+
+# Create your views here.
+
+author = {
+    "Имя": "Иван",
+    "Отчество": "Петрович",
+    "Фамилия": "Иванов",
+    "телефон": "8-923-600-01-02",
+    "email": "vasya@mail.ru",
+}
+
 
 items = [
    {"id": 1, "name": "Кроссовки abibas" ,"quantity":5},
@@ -9,90 +20,42 @@ items = [
    {"id": 8, "name": "Кепка" ,"quantity":124},
 ]
 
+
 def home(request):
     text = """
-    <h1>"Изучаем Django"</h1>
-    <strong>Автор</strong>:<i>Иванов И.П.</i>
+    <h1>"Изучаем django"</h1>
+    <strong>Автор</strong>: <i>Иванов И.П.</i>    
     """
     return HttpResponse(text)
 
-author = {
-    "Имя": "Иван",
-    "Отчество": "Петрович",
-    "Фамилия": "Иванов",
-    "телефон": "8-865-234-12-23",
-    "e-mail": "vasia@mail.ru",
-}
 
 def about(request):
     text = f"""
-    <p>Имя: <b>{author["Имя"]}</b></p>
-    <p>Отчество: <b>{author["Отчество"]}</b></p>
-    <p>Фамилия: <b>{author["Фамилия"]}</b></hp>
-    <p>телефон: <b>{author["телефон"]}</b></p>
-    <p>e-mail: <b>{author["e-mail"]}</b></p>
+    Имя: <b>{author["Имя"]}</b><br>
+    Отчество: <b>{author["Отчество"]}</b><br>
+    Фамилия: <b>{author["Фамилия"]}</b><br>
+    телефон: <b>{author["телефон"]}</b><br>
+    email: <b>{author["email"]}</b><br>
     """
     return HttpResponse(text)
 
-def product_n(request, id):
-    
-    match id:
-        case 1: m = 0
-        case 2: m = 1
-        case 5: m = 2
-        case 7: m = 3
-        case 8: m = 4
-        case _: m = -1
-    
-    if m != -1:
-        text = f"""
-        {items[m]["id"]}. {items[m]["name"]}, количество: {items[m]["quantity"]}
-        """
-    else:
-        text = f"Товар с id={id} не найден"
-    
-    return HttpResponse(text)
-    
-def products(request):
-    text = ''
-    for i in range(5):
-       text += f"""
-        <p>{items[i]["id"]}. <a href="{items[i]["id"]}.html">{items[i]["name"]}</a>, количество: {items[i]["quantity"]}
-        """
-    
-    return HttpResponse(text)
 
-def page_1(request):
-    text = f"""
-        <h1>{items[0]["id"]}. {items[0]["name"]}, количество: {items[0]["quantity"]}</h1>
-        <h2><a href="items">Назад </a></h2>
-        """
-    return HttpResponse(text)
+def get_item(request, item_id):
+    """ По указанному id возвращаем имя и кол-во элемента """
+    for item in items:
+        if item['id'] == item_id:
+            result = f"""
+            <h2> Имя: {item["name"]} </h2>
+            <p> Количество: {item["quantity"]} </p>
+            <p> <a href="/items"> Назад к списку товаров </a></p>
+            """
+            return HttpResponse(result)
+    return HttpResponseNotFound(f"Item with id={item_id} not found.")
 
-def page_2(request):
-    text = f"""
-        <h1>{items[1]["id"]}. {items[1]["name"]}, количество: {items[1]["quantity"]}</h1>
-        <h2><a href="items">Назад </a></h2>
-        """
-    return HttpResponse(text)
 
-def page_5(request):
-    text = f"""
-        <h1>{items[2]["id"]}. {items[2]["name"]}, количество: {items[2]["quantity"]}</h1>
-        <h2><a href="items">Назад </a></h2>
-        """
-    return HttpResponse(text)
-
-def page_7(request):
-    text = f"""
-        <h1>{items[3]["id"]}. {items[3]["name"]}, количество: {items[3]["quantity"]}</h1>
-        <h2><a href="items">Назад </a></h2>
-        """
-    return HttpResponse(text)
-
-def page_8(request):
-    text = f"""
-        <h1>{items[4]["id"]}. {items[4]["name"]}, количество: {items[4]["quantity"]}</h1>
-        <h2><a href="items">Назад </a></h2>
-        """
-    return HttpResponse(text)
+def get_items(request):
+    result = "<h1>Список товаров</h1><ol>"
+    for item in items:
+        result += f"""<li> <a href="/item/{item['id']}"> {item['name']}</li> """
+    result += "</ol>"
+    return HttpResponse(result)
