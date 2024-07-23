@@ -42,6 +42,7 @@ def about(request):
     телефон: <b>{author["телефон"]}</b><br>
     email: <b>{author["email"]}</b><br>
     """
+
     return HttpResponse(text)
 
 

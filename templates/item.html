@@ -4,11 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Товар c id {{ id }}</title>
-    <h1>{{ id }}. {{ name }}</h1>
-    <h2>Количество: {{ quantity }}</h2>
-    
 </head>
 <body>
-    
+    <h1>{{ id }}. {{ name }}</h1>
+    {% if quantity %}
+        <h2>Количество: {{ quantity }}</h2>
+    {% else %}
+        <h2>Товар отсутствует</h2>
+    {% endif %}
+    <p> <a href="/items"> Назад к списку товаров </a></p>
 </body>
 </html>
