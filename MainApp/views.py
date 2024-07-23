@@ -36,6 +36,8 @@ def home(request):
 
 def about(request):
     text = f"""
+    <p><a href="/">Главная страница</a>  /  <a href="/items">Товары</a>  /  <a href="/about">Об авторе</a> </p>
+    <br><br>
     Имя: <b>{author["Имя"]}</b><br>
     Отчество: <b>{author["Отчество"]}</b><br>
     Фамилия: <b>{author["Фамилия"]}</b><br>
