@@ -61,12 +61,14 @@ def get_item(request, item_id):
 
 
 def get_items(request):
-    
-    
+    context = {
+        "items": items
+    }
+
     
     #result = "<h1>Список товаров</h1><ol>"
     #for item in items:
     #    result += f"""<li> <a href="/item/{item['id']}"> {item['name']}</li> """
     #result += "</ol>"
-    return render(request, "items.html", items)
+    return render(request, "items.html", context)
     #return HttpResponse(result)

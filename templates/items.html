@@ -6,12 +6,12 @@
     <title>Товары</title>
 
     <h1>Товары</h1>
-    <ul>
+    <ol fontsize="20">
            
-        {% for product in items %}
-            <li> {{ product. }} </li>
+        {% for row in items %}
+            <li> <a href="/item/{{row.id}}"> {{ row.name}}</a>, {{row.quantity}} единиц</li>
         {% endfor %} 
-    </ul>
+    </ol>
 
     
 </head>
