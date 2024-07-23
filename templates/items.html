@@ -6,10 +6,9 @@
     <title>Товары</title>
 
     <h1>Товары</h1>
-    <ol fontsize="20">
-           
+    <ol> 
         {% for row in items %}
-            <li> <a href="/item/{{row.id}}"> {{ row.name}}</a>, {{row.quantity}} единиц</li>
+            <li> <h2><a href="/item/{{row.id}}"> {{ row.name}}</a>, {{row.quantity}} единиц</h2></li>
         {% endfor %} 
     </ol>
 
