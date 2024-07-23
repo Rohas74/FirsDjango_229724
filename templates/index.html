@@ -2,18 +2,20 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Main page</title>
 </head>
 <body>
-    <p><a href="/items">Товары</a>  /  <a href="/about">Об авторе</a> </p>
-    <br><br>
-    <h1>Приветствую!</h1>
-    Меня зовут: <i> {{ name }} </i><br>
-    моя почта: <i> {{ email }}</i><br><br>
+    <header>
+        / <a href="/"> Home </a> / <a href="/items"> Items </a> / <a href="/about"> About </a>        
+    </header>
 
-    Это главная страница сайта</br>
-    <p> <a href="/items">К списку товаров</a></p>
-    <i>Это сайт пока в разработке</i>
+    <h1>Приветствую!</h1>
+
+    Меня зовут: <i> {{ name }}. </i><br>
+    Мой email: <i> {{ email }} </i><br><br>
+
+    Это главная страница сайта.<br>
+    <i>Это сайт пока в разработке ...</i>
+    
 </body>
 </html>
