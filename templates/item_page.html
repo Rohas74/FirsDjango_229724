@@ -1,6 +1,14 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block head %}
+    {% block style%}
+        {{ block.super}}
+            <style>
+            .this-product {
+             font-size: 30px; 
+            }
+            </style>
+    {% endblock %}
     {{ block.super }}
     <title>Страница товара</title>
 {% endblock %}
@@ -19,7 +27,10 @@
         Описание: {{ item.caption }}
     </div>
     <div>
-        Доступные цвета: {{ item.colors }}
+        Доступные цвета: 
+        {% for my_col in colors %}
+            <span class="this-product"><font color="{{ my_col.name }}">&#9632</span>
+        {% endfor %}
     </div>
 
     <p> <a href="{% url 'single-item' %}"> Назад к списку товаров </a></p>
