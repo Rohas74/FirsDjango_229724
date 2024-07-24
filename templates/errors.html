@@ -1,8 +1,11 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block head %}
     {{ block.super }}
     <title>Ошибка!</title>
 {% endblock %}
 {% block content %}
+<img width="50px" src="{% static "images/django.svg" %}">
+{% include 'inc-1.html' %}
 <h2>{{ error }}</h2>
 {% endblock %}

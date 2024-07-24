@@ -11,19 +11,15 @@
     </head>    
 {% endblock %}
 
-<body>
-<header>
-    <a href="{% url 'index-page' %}"> Home </a> / 
-        <a href="{% url 'single-item' %}"> Items </a> / 
-        <a href="{% url 'auth-about' %}"> About </a> 
-</header>
-<main>
-    {#  Содержимое этого блока уникально на каждой странице #}
-    {% block content %}
-    {% endblock %}
-</main>
+<body>   
+{#  Содержимое этого блока уникально на каждой странице #}
+{% block content %}
+
+{% include 'inc-1.html' %}
+
 <footer>
     <i>Это сайт пока в разработке ...</i>
 </footer>
+{% endblock %}
 </body>
 </html>

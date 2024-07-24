@@ -8,3 +8,4 @@ class Item(models.Model):
     brand = models.CharField(max_length=100)
     count = models.PositiveIntegerField() 
     caption = models.CharField(max_length=50, blank=True)
+    #colors = model.

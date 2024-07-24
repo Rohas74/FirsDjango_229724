@@ -1,11 +1,14 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block head %}
     {{ block.super }}
     <title>Страница автора</title>
 {% endblock %}
 
 {% block content %}
+<img width="50px" src="{% static "images/django.svg" %}">
+{% include 'inc-1.html' %}
+
 <h2> Страница автора</h2>
 
     Имя: <b>{{ author.name }}</b><br>
