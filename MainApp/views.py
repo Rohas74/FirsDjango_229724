@@ -48,10 +48,10 @@ def get_item(request, item_id):
         return render(request, "errors.html", {"error": f"Item with id={item_id} not found."})
     else:
         my_color = item.colors.all()
-        p_color = my_color[0].name
+
         context = {
             "item": item,
-            "colors" : p_color
+            "colors" : my_color
         }
         return render(request, "item_page.html", context)
 
