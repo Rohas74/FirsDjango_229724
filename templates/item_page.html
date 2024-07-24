@@ -27,10 +27,14 @@
         Описание: {{ item.caption }}
     </div>
     <div>
-        Доступные цвета: 
-        {% for my_col in colors %}
+        <h3>Доступные цвета:</h3> 
+        {% if colors %}
+            {% for my_col in colors %}
             <span class="this-product"><font color="{{ my_col.name }}">&#9632</span>
-        {% endfor %}
+            {% endfor %}
+        {% else %}
+        Данные по цветам отсутствуют
+        {% endif%}
     </div>
 
     <p> <a href="{% url 'single-item' %}"> Назад к списку товаров </a></p>
