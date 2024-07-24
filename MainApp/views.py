@@ -1,6 +1,6 @@
 from django.http import HttpResponse, HttpResponseNotFound
 from django.shortcuts import render
-from MainApp.models import Item
+from MainApp.models import Item, Color
 # Нужный тип исключения для get_item()
 from django.core.exceptions import ObjectDoesNotExist
 # Create your views here.
@@ -44,12 +44,15 @@ def get_item(request, item_id):
     #         }
     try:
         item = Item.objects.get(id = item_id)
-        context = {
-            "item": item
-        }
     except ObjectDoesNotExist:
         return render(request, "errors.html", {"error": f"Item with id={item_id} not found."})
     else:
+        my_color = item.colors.all()
+        p_color = my_color[0].name
+        context = {
+            "item": item,
+            "colors" : p_color
+        }
         return render(request, "item_page.html", context)
 
 

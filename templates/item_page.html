@@ -16,7 +16,10 @@
         Количество: {{ item.count | default:"Товар отсутствует" }}
     </div>       
     <div>
-        Описание: {{ item.description }}
+        Описание: {{ item.caption }}
+    </div>
+    <div>
+        Доступные цвета: {{ item.colors }}
     </div>
 
     <p> <a href="{% url 'single-item' %}"> Назад к списку товаров </a></p>

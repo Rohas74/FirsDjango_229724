@@ -18,16 +18,16 @@
 <h1>Список товаров</h1> 
 
 <div class="items">
-        {% for item in items %}
-        <div class="item">
-            <a href="/item/{{ item.id }}">
-                <p class="item_name">{{ item.name }} </p>
-                <p>Бренд: {{ item.brand }} </p>
-                <p>Описание товара:</p>
-                <p>{{ item.description }}</p>
-            </a>
-        </div>
-        {% endfor %}
+    {% for item in items %}
+    <div class="item">
+        <a href="/item/{{ item.id }}">
+            <p class="item_name">{{ item.name }} </p>
+            <p>Бренд: {{ item.brand }} </p>
+            <p>Описание товара:</p>
+            <p>{{ item.caption }}</p>
+        </a>
+    </div>
+    {% endfor %}
 </div>
 {% endblock %}
 
