@@ -1,17 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Errors page</title>
-</head>
-<body>
-    <header>
-        <a href="{% url 'index-page' %}"> Home </a> / 
-            <a href="{% url 'single-item' %}"> Items </a> / 
-            <a href="{% url 'auth-about' %}"> About </a> 
-    </header>
-    
-    <h2>{{ error }}</h2>
-</body>
-</html>
+{% extends 'base.html' %}
+{% block head %}
+    {{ block.super }}
+    <title>Ошибка!</title>
+{% endblock %}
+{% block content %}
+<h2>{{ error }}</h2>
+{% endblock %}

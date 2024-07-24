@@ -1,18 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Item page</title>
-</head>
-<body>
-    <header>
-        <a href="{% url 'index-page' %}"> Home </a> / 
-            <a href="{% url 'single-item' %}"> Items </a> / 
-            <a href="{% url 'auth-about' %}"> About </a>        
-    </header>
+{% extends 'base.html' %}
 
-    <h2> Имя: {{ item.name }} </h2>
+{% block head %}
+    {{ block.super }}
+    <title>Страница товара</title>
+{% endblock %}
+
+{% block content %}
+<h2> Имя: {{ item.name }} </h2>
     <div>
         Бренд: {{ item.brand }}
     </div>
@@ -24,6 +18,4 @@
     </div>
 
     <p> <a href="{% url 'single-item' %}"> Назад к списку товаров </a></p>
-
-</body>
-</html>
+{% endblock %}

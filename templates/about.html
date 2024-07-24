@@ -1,24 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <header>
-        <a href="{% url 'index-page' %}"> Home </a> / 
-            <a href="{% url 'single-item' %}"> Items </a> / 
-            <a href="{% url 'auth-about' %}"> About </a>         
-    </header>
-    
-    <h2> Страница автора</h2>
+{% extends 'base.html' %}
+
+{% block head %}
+    {{ block.super }}
+    <title>Страница автора</title>
+{% endblock %}
+
+{% block content %}
+<h2> Страница автора</h2>
 
     Имя: <b>{{ author.name }}</b><br>
     Отчество: <b>{{ author.middle_name }}</b><br>
     Фамилия: <b>{{ author.last_name }}</b><br>
     телефон: <b>{{ author.phone }}</b><br>
     email: <b>{{ author.email }}</b><br>
-
-</body>
-</html>
+{% endblock %}

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+{% block head %}
+    <head>
+        <meta charset="UTF-8">
+        {% block style %}
+        {# Это общая css для всех страниц #}
+        {#<link rel="stylesheet" href="style.css">#}
+        {# Но каждая страница может содержать доп.уникальные css #}
+        {% endblock %}
+    </head>    
+{% endblock %}
+
+<body>
+<header>
+    <a href="{% url 'index-page' %}"> Home </a> / 
+        <a href="{% url 'single-item' %}"> Items </a> / 
+        <a href="{% url 'auth-about' %}"> About </a> 
+</header>
+<main>
+    {#  Содержимое этого блока уникально на каждой странице #}
+    {% block content %}
+    {% endblock %}
+</main>
+<footer>
+    <i>Это сайт пока в разработке ...</i>
+</footer>
+</body>
+</html>
