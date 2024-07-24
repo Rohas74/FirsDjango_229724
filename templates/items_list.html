@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 
+{% load static %}
+
 {% block head %}
     {{ block.super }}
     <title>Товары</title>
@@ -7,10 +9,7 @@
 
 {% block style %}
     {{ block.super }}
-    <style>
-        {% load static %}
         <link rel="stylesheet" href="{% static "css/style.css" %}">
-    </style>
 {% endblock %}
 
 {% block content %}
